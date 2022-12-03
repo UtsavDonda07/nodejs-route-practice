@@ -1,0 +1,11 @@
+.nav{
+    display: flex;
+    outline: 2px solid rgb(157, 227, 157);
+    background-color: rgba(95, 209, 137, 0.409);
+    margin: -6px -5px;
+    padding: 10px 20px;
+}
+a{
+    text-decoration: none; 
+    color: rgb(0, 0, 0);
+}

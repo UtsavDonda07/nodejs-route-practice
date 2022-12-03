@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blogs | <%= title %></title>
+    <link rel="stylesheet" href="/style/details.css">
+    
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+    <div class="details content">
+        <h2><%= blog.title %></h2>
+        <div class="content">
+            <p><%= blog.body %></p>
+            
+        </div>
+        <form>
+        <button id ="delete" class=<%=blog.id %> >delete</button>
+      </form>
+
+        
+    </div>
+    <%- include("./partials/footer.ejs") %>
+    <script>
+      console.log("------------------------------------------")
+      const trashcan = document.getElementById("delete");
+      const [id,...rest] = trashcan.classList
+      console.log(id)
+      console.log(trashcan)
+      trashcan.addEventListener('click',function(e){
+        console.log("On Delete")
+        e.preventDefault()
+        const endpoint = `/blogs/${id}`;
+        fetch(endpoint,{
+          method: 'DELETE'
+        })
+        .then((response)=>response.json())
+        .then((data)=> window.location.href=data.redirect)
+        .catch(err => console.log(err));
+      });
+    </script>
+    
+  </body>
+</html>

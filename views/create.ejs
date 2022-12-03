@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blogs | <%= title %></title>
+</head>
+<body>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="create-blog" style="margin:10% 40%;">
+    <br>
+    <form action="/blogs" method="post">
+        <label for="blog title">Blog Title:</label>
+        <input type="text" name="title" ><br><br>
+        <label for="blog body">Blog Body:</label>
+        <input type="text" name="body" ><br><br> 
+       <button>Submit</button>
+       
+    </form>
+</div>
+
+</body>
+</html>
